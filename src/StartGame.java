@@ -1,3 +1,4 @@
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class StartGame {
@@ -8,7 +9,13 @@ public class StartGame {
         Board board = new Board();
         Player playerX = new Player('X');
         Player playerO = new Player('O');
+
+        playerX.setName(playerX.getValidName(scanner));
+        playerO.setName(playerO.getValidName(scanner));
         Player playerptr = playerX;
+
+
+
         board.printOutRules(scanner);
         while (true) {
 
@@ -16,8 +23,8 @@ public class StartGame {
             board.printOutBoard();
             playerptr.makeMove(scanner);
 
-            if (board.checkWin()){
-                System.out.println("someone won!");
+            if (board.checkWin()) {
+                System.out.println("Player" + playerptr.symbol + ", " + playerptr.getName() + " won!");
                 break;
             }
 
@@ -27,6 +34,7 @@ public class StartGame {
             } else
                 playerptr = playerX;
         }
+        scanner.close();
     }
 
 
