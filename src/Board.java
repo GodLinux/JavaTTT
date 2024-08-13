@@ -9,13 +9,12 @@ public class Board {
         fields = new char[row][col];
         for (int i = 0; i < row; i++){
             for (int j = 0; j < col; j++){
-                fields[i][j] = 'c';
+                fields[i][j] = '-';
             }
         }
     }
 
     void printOutBoard(){
-        fields = new char[row][col];
         for (int i = 0; i < row; i++){
             for (int j = 0; j < col; j++){
                 System.out.print(fields[i][j]);
@@ -31,6 +30,18 @@ public class Board {
 
 
     }
+
+    boolean checkWin(){
+        for (int i = 0; i < 3; i++){
+            if ((fields[i][0] == fields[i][1] && fields[i][0] == fields[i][2] && fields[i][0] != '-')
+                    || (fields[0][i] == fields[1][i] && fields[0][i] == fields[2][i] && fields[0][i] != '-'))
+                return true;
+        }
+        return (fields[0][0] == fields[1][1] && fields[0][0] == fields[2][2] && fields[2][2] != '-')
+                || (fields[0][2] == fields[1][1] && fields[0][2] == fields[2][0] && fields[2][0] != '-');
+
+    }
+
 
 
 

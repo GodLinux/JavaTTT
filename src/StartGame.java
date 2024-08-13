@@ -13,16 +13,25 @@ public class StartGame {
         while (true) {
 
 
-
             board.printOutBoard();
             playerptr.makeMove(scanner);
 
+            if (board.checkWin()){
+                System.out.println("someone won!");
+                break;
+            }
 
 
+            if (playerptr == playerX) {
+                playerptr = playerO;
+            } else
+                playerptr = playerX;
         }
     }
 
 
-
-
 }
+
+
+
+
