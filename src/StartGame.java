@@ -24,7 +24,8 @@ public class StartGame {
             playerptr.makeMove(scanner);
 
             if (board.checkWin()) {
-                System.out.println("Player" + playerptr.symbol + ", " + playerptr.getName() + " won!");
+                board.printOutBoard();
+                System.out.printf("Player%s, %s won!%n", playerptr.getSymbol(), playerptr.getName());
                 break;
             }
 

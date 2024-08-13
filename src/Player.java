@@ -2,7 +2,7 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Player {
-    final char symbol;
+    final private char symbol;
     private String name;
 
     Player(char symbol) {
@@ -12,6 +12,10 @@ public class Player {
 
     void setName(String name) {
         this.name = name;
+    }
+
+    public char getSymbol() {
+        return symbol;
     }
 
     public String getName() {
@@ -39,7 +43,7 @@ public class Player {
         boolean temp = true;
         while (temp) {
             try {
-                System.out.println("Player " + symbol);
+                System.out.printf("Player%s: %s%n", getSymbol(), getName());
                 System.out.print("Give me 1-digit number for a row: ");
                 int moveRow = sc.nextInt();
                 System.out.print("Give me 1-digit number for a col: ");
